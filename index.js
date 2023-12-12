@@ -64,6 +64,8 @@ for (let i = 1; i <= numLabelsAndInputs; i++) {
 form.append(submitButton)
 
 const ul = document.createElement('ul')
+div.appendChild(ul);
+ul.setAttribute("id", "playlist");
 const rightSection = document.createElement('section')
 div.appendChild(rightSection)
 rightSection.classList.add('right')
@@ -79,6 +81,45 @@ iFrame.setAttribute("height", "315")
 iFrame.setAttribute("frameborder", "0")
 iFrame.setAttribute("src", "")
 rightSectionDiv.append(iFrame)
-
-
 section.append(ul)
+
+const getFormById = document.getElementById("playlist-form")
+const playlist = document.getElementById("playlist")
+const player = document.getElementById("player")
+
+console.log(getFormById)
+console.log(playlist)
+console.log(player)
+
+form.addEventListener("submit", function (e) {
+    e.preventDefault()
+    const songNameInput = ""
+    const artistNameInput = ""
+    const youtubeIDInput = ""
+    const songName = ""
+    const artistName = ""
+    const youtubeID = ""
+    form.reset()
+})
+
+function displayPlaylist(songObj) {
+    const span = ""
+    const li = ""
+    const deleteBtn = ""
+
+    span.textContent = `${songObj.songName} - ${songObj.artistName}`
+    deleteBtn.innerHTML = "🗑️"
+
+    // Add event lsiteners
+
+    li.addEventListener("click", (e) => {
+        console.log("Deleting song...")
+        //8. Stop the propagation of the click so the li doesn't respond to the delete click
+
+      //9. Remove the li, which is the grandparent of the deleteBtn
+
+      //Hint:  e.target is the button - use the parentNode property to get to the span, and again to get to the li.  Then use .remove()
+
+      //BONUS: use a confirm box to allow the user to change their minds about deleting the song. A confirm box returns true or false depending on what the user selects.  Try using the return value of the confirm box in a conditional, and move the .remove() into the if statement
+    })
+}
