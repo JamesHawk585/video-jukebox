@@ -5,6 +5,10 @@ const newH1 = document.createElement('h1')
 const h1 = document.querySelector('h1')
 const submitButton = document.createElement('button')
 
+document.addEventListener("DOMContentLoaded", function() {
+    return
+  });
+
 body.prepend(newHeader)
 newHeader.append(newH1)
 
@@ -60,6 +64,7 @@ for (let i = 1; i <= numLabelsAndInputs; i++) {
     form.append(labelDiv)
     form.append(inputDiv)
     form.append(breakElement)
+    debugger
 }
 form.append(submitButton)
 
@@ -93,13 +98,13 @@ console.log(player)
 
 form.addEventListener("submit", function (e) {
     e.preventDefault()
-    const songNameInput = ""
-    const artistNameInput = ""
-    const youtubeIDInput = ""
-    const songName = ""
-    const artistName = ""
-    const youtubeID = ""
-    form.reset()
+    const songName = document.getElementById('song').value
+    const artistName = document.getElementById('artist').value
+    const youtubeID = document.getElementById('youtube-id').value
+    const songObj = {songName, artistName, youtubeID}
+    console.log(songObj)
+    console.log(e)
+    // form.reset()
 })
 
 function displayPlaylist(songObj) {
@@ -109,17 +114,17 @@ function displayPlaylist(songObj) {
 
     span.textContent = `${songObj.songName} - ${songObj.artistName}`
     deleteBtn.innerHTML = "🗑️"
-
-    // Add event lsiteners
-
-    li.addEventListener("click", (e) => {
-        console.log("Deleting song...")
-        //8. Stop the propagation of the click so the li doesn't respond to the delete click
-
-      //9. Remove the li, which is the grandparent of the deleteBtn
-
-      //Hint:  e.target is the button - use the parentNode property to get to the span, and again to get to the li.  Then use .remove()
-
-      //BONUS: use a confirm box to allow the user to change their minds about deleting the song. A confirm box returns true or false depending on what the user selects.  Try using the return value of the confirm box in a conditional, and move the .remove() into the if statement
-    })
 }
+//     // Add event lsiteners
+
+//     li.addEventListener("click", (e) => {
+//         console.log("Deleting song...")
+//         //8. Stop the propagation of the click so the li doesn't respond to the delete click
+
+//       //9. Remove the li, which is the grandparent of the deleteBtn
+
+//       //Hint:  e.target is the button - use the parentNode property to get to the span, and again to get to the li.  Then use .remove()
+
+//       //BONUS: use a confirm box to allow the user to change their minds about deleting the song. A confirm box returns true or false depending on what the user selects.  Try using the return value of the confirm box in a conditional, and move the .remove() into the if statement
+//     })
+// }
