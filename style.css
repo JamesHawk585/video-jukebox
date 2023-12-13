@@ -22,6 +22,7 @@ body {
     padding: 20px;
     background-color: #f2f2f2;
     border-radius: 10px;
+    background-color: lightgrey
 }
 
 label {
@@ -44,14 +45,23 @@ input[type="text"] {
  button[type="submit"] {
     display: block;
     background-color: #4caf50;
-    color: white;
+    color: red;
     border: none;
     border-radius: 5px;
     padding: 10px 20px;
     cursor: pointer;
     margin-top: 20px;
+    width: 200px;
+    font-size: 16px;
  }
  
+#submit {
+   width: 70px;
+   height: 35px;
+   background-color: black;
+   color: white;
+}
+
  button[type="submit"]:hover {
     background-color: #3e8e41;
  }
@@ -90,3 +100,4 @@ input[type="text"] {
     height: 100%;
     border: none;
  }
+

@@ -65,7 +65,12 @@ for (let i = 1; i <= numLabelsAndInputs; i++) {
     form.append(breakElement)
     // debugger
 }
+
 form.append(submitButton)
+submitButton.innerText = "Submit"
+// When I use setAttribute to give the submit button an id, the left div dissapears from the dom: why? 
+submitButton.setAttribute("id", "submit")
+
 
 const ul = document.createElement('ul')
 div.appendChild(ul);
