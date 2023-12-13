@@ -34,7 +34,6 @@ for (let i = 1; i <= numLabelsAndInputs; i++) {
     const breakElement = document.createElement('br')
 
     const labelDiv = document.createElement('div')
-    const inputDiv= document.createElement('input')
     if (i === 1) {
         label.innerText = "Song Name:"
         label.setAttribute("for", "song")
@@ -58,13 +57,13 @@ for (let i = 1; i <= numLabelsAndInputs; i++) {
         input.setAttribute("name", "youtube-id")
     }
 
+    console.log(input)
     labelDiv.append(label)
-    inputDiv.append(input)
 
     form.append(labelDiv)
-    form.append(inputDiv)
+    form.append(input)
     form.append(breakElement)
-    debugger
+    // debugger
 }
 form.append(submitButton)
 
@@ -92,9 +91,9 @@ const getFormById = document.getElementById("playlist-form")
 const playlist = document.getElementById("playlist")
 const player = document.getElementById("player")
 
-console.log(getFormById)
-console.log(playlist)
-console.log(player)
+// console.log(getFormById)
+// console.log(playlist)
+// console.log(player)
 
 form.addEventListener("submit", function (e) {
     e.preventDefault()
