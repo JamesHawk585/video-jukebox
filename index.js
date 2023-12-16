@@ -33,7 +33,7 @@ for (let i = 1; i <= numLabelsAndInputs; i++) {
     const input = document.createElement('input')
     const breakElement = document.createElement('br')
 
-    const labelDiv = document.createElement('div')
+    // const labelDiv = document.createElement('div')
     if (i === 1) {
         label.innerText = "Song Name:"
         label.setAttribute("for", "song")
@@ -58,16 +58,16 @@ for (let i = 1; i <= numLabelsAndInputs; i++) {
     }
 
     console.log(input)
-    labelDiv.append(label)
+    form.append(label)
 
-    form.append(labelDiv)
+    // form.append(labelDiv)
     form.append(input)
     form.append(breakElement)
     // debugger
 }
 
 form.append(submitButton)
-submitButton.innerText = "Submit"
+submitButton.innerText = "Add"
 // When I use setAttribute to give the submit button an id, the left div dissapears from the dom: why? 
 submitButton.setAttribute("id", "submit")
 
@@ -92,13 +92,11 @@ iFrame.setAttribute("src", "")
 rightSectionDiv.append(iFrame)
 section.append(ul)
 
+// iframe is a special html element. It allows a 'src' attribute that can display video. 
+
 const getFormById = document.getElementById("playlist-form")
 const playlist = document.getElementById("playlist")
 const player = document.getElementById("player")
-
-// console.log(getFormById)
-// console.log(playlist)
-// console.log(player)
 
 form.addEventListener("submit", function (e) {
     e.preventDefault()
@@ -106,19 +104,40 @@ form.addEventListener("submit", function (e) {
     const artistName = document.getElementById('artist').value
     const youtubeID = document.getElementById('youtube-id').value
     const songObj = {songName, artistName, youtubeID}
-    console.log(songObj)
+    displayPlaylist(songObj)
+
+
+    // console.log(e.target.value)
     console.log(e)
     // form.reset()
 })
 
 function displayPlaylist(songObj) {
-    const span = ""
-    const li = ""
-    const deleteBtn = ""
+    const span = document.createElement('span')
+    const li = document.createElement('li')
+    const deleteBtn = document.createElement('button')
 
     span.textContent = `${songObj.songName} - ${songObj.artistName}`
     deleteBtn.innerHTML = "🗑️"
+
+    li.addEventListener("click", (e) => {
+       player.src =  `https://www.youtube.com/embed/${songObj.youtubeID}`
+       e.stopPropagation
+    })
+
+    deleteBtn.addEventListener("click", (e) => {
+        console.log("Deleting Song...")
+        // Add code
+    })
+
+    span.appendChild(deleteBtn)
+    console.log(deleteBtn)
+    li.appendChild(span)
+    console.log(span)
+    playlist.appendChild(li)
+    console.log(li)
 }
+
 //     // Add event lsiteners
 
 //     li.addEventListener("click", (e) => {
