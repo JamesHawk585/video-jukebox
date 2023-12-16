@@ -121,16 +121,23 @@ function displayPlaylist(songObj) {
     deleteBtn.innerHTML = "🗑️"
 
     li.addEventListener("click", (e) => {
+        e.stopPropagation()
        player.src =  `https://www.youtube.com/embed/${songObj.youtubeID}`
-       e.stopPropagation
     })
 
     deleteBtn.addEventListener("click", (e) => {
+        e.stopPropagation()
         console.log("Deleting Song...")
         // Add code
+        
+        e.target.parentNode.parentNode.remove()
+        console.log(e.target.parentNode.parentNode)
+        form.reset()
+
     })
 
     span.appendChild(deleteBtn)
+    // <span> is an inline text element
     console.log(deleteBtn)
     li.appendChild(span)
     console.log(span)
